@@ -1,0 +1,165 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "job api",
+    "dateExported": "2024-01-19T11:29:00.524Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "5a342f25-6d21-4d71-968a-2f9db254ad42",
+            "colId": "444ff8fb-ffd5-4c7e-bcd3-962644d87ae8",
+            "containerId": "",
+            "name": "get all jobs api",
+            "url": "http://localhost:5000/getAllJob",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-01-19T11:27:49.816Z",
+            "modified": "2024-01-19T11:27:49.816Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "49125306-4b55-4a48-b9cc-99c074c33dee",
+            "colId": "444ff8fb-ffd5-4c7e-bcd3-962644d87ae8",
+            "containerId": "",
+            "name": "apply job api",
+            "url": "http://localhost:5000/applyJob",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-01-19T11:27:57.514Z",
+            "modified": "2024-01-19T11:27:57.514Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"category\":\"Sales\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "1e3e2855-7194-4357-878a-76301e8fb70a",
+            "colId": "444ff8fb-ffd5-4c7e-bcd3-962644d87ae8",
+            "containerId": "",
+            "name": "add job api",
+            "url": "http://localhost:5000/addJob",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-01-19T11:28:02.282Z",
+            "modified": "2024-01-19T11:28:02.282Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\":\"Sales executive\",\n  \"description\":\"We need an employee who has good communication skills and can handle pressure situation.\",\n  \"category\":\"Sales\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "86296ba1-7c6a-4d91-8860-851e83dca53a",
+            "colId": "444ff8fb-ffd5-4c7e-bcd3-962644d87ae8",
+            "containerId": "",
+            "name": "add new job category",
+            "url": "http://localhost:5000/addJobCategory",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-01-19T11:28:08.882Z",
+            "modified": "2024-01-19T11:28:08.882Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjoiMSJ9LCJpZCI6IjY1YWEwZjhkNjgwYzlmOGZkYmJiYzUzNSIsImV4cCI6MTcwNTY0OTMyMH0.PvuqcBbsTdBDqPaLRBicCSD-yJpZoH3kYxo5GW7bUjo"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"field\":\"Gardner\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "c7b2aa93-4b67-4c5e-a03b-0beb3ac3d413",
+            "colId": "444ff8fb-ffd5-4c7e-bcd3-962644d87ae8",
+            "containerId": "",
+            "name": "register user api",
+            "url": "http://localhost:5000/registerUser",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-01-19T11:28:15.451Z",
+            "modified": "2024-01-19T11:28:15.451Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"KAbhinav Sinha\",\n  \"age\":22,\n  \"email\":\"abhinavsinha135@gmail.com\",\n  \"password\":\"@Abhinav111a\",\n  \"gender\":\"male\",\n  \"phone\":\"9351847568\",\n  \"jobInterest\":[\n                  \"Gradner\",\"Sales\"\n                  ]\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "14b7cdda-ecd9-4da4-a504-ac0c34695079",
+            "colId": "444ff8fb-ffd5-4c7e-bcd3-962644d87ae8",
+            "containerId": "",
+            "name": "login api",
+            "url": "http://localhost:5000/loginUser",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2024-01-19T11:28:20.466Z",
+            "modified": "2024-01-19T11:28:20.466Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"abhinavsinha135@gmail.com\",\n  \"password\":\"@Abhinav111a\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "fa3c4d5a-1684-4416-a54c-97c8437b9f56",
+            "colId": "444ff8fb-ffd5-4c7e-bcd3-962644d87ae8",
+            "containerId": "",
+            "name": "get all user api",
+            "url": "http://localhost:5000/getAllUsers",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-01-19T11:28:44.690Z",
+            "modified": "2024-01-19T11:28:44.690Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "32e6c80e-ec5f-4699-b0d9-6b9af202a9bd",
+            "colId": "444ff8fb-ffd5-4c7e-bcd3-962644d87ae8",
+            "containerId": "",
+            "name": "Logout api",
+            "url": "http://localhost:5000/logout",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2024-01-19T11:28:51.370Z",
+            "modified": "2024-01-19T11:28:51.370Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
