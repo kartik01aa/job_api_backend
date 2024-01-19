@@ -33,3 +33,34 @@ export const sendEmails = async (userEmail: any) => {
     console.log("Error");
   }
 };
+
+export const sendEmailToOwner = async (ownerEmail: any, userId: any) => {
+  // fetching product details for sending product using email
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.NODEMAILER_USER,
+      pass: process.env.NODEMAILER_PASS,
+    },
+  });
+  try {
+    const mailOptions = {
+      from: process.env.NODEMAILER_USER,
+      to: ownerEmail,
+      subject: "New user applied",
+      text: `New user has applied for the job. ID_No : ${userId}`,
+    };
+
+    transporter.sendMail(mailOptions, async (err, info) => {
+      if (err) {
+        console.log(err);
+        throw new CustomAPIError("Not successfully");
+      } else {
+        console.log("Email sent successfully");
+        return;
+      }
+    });
+  } catch (err) {
+    console.log("Error");
+  }
+};

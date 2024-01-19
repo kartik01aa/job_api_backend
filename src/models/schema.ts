@@ -20,7 +20,7 @@ interface jobApplication {
   title: string;
   description: string;
   category: string;
-  employerId: string;
+  employerEmail: string;
 }
 
 // Schema user
@@ -45,7 +45,7 @@ export const schema3 = new Schema<jobApplication>({
   title: { type: String, required: true },
   description: { type: String, required: true },
   category: { type: String, required: true },
-  employerId: { type: String, required: false },
+  employerEmail: { type: String, required: false },
 });
 const User = model("User", schema);
 const jobCategory = model("jobCategory", schema2);

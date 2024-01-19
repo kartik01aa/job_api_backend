@@ -3,7 +3,7 @@ import { User, jobCategory, jobApplication } from "../models/schema";
 import CustomAPIError from "../error/custom-error";
 import { genSaltSync, hashSync, compareSync } from "bcrypt";
 import Jwt from "jsonwebtoken";
-import { sendEmails } from "../controllers/nodemailer";
+import { sendEmails, sendEmailToOwner } from "../controllers/nodemailer";
 
 export const registerUser: RequestHandler = async (req, res, next) => {
   try {
@@ -148,19 +148,19 @@ export const addJob: RequestHandler = async (req, res, next) => {
     for (var people of all) {
       userEmail.push(people.email);
     }
-    console.log("pass1");
-    await sendEmails(userEmail);
-    console.log("pass2");
+
+    const ownerEmail: any = await User.findById(`${userId}`);
+
     if (categoryExist) {
-      console.log("pass3");
+      await sendEmails(userEmail);
+
       await new jobApplication({
         title,
         description,
         category,
-        employerId: userId,
+        employerEmail: ownerEmail.email,
       }).save();
     } else throw new CustomAPIError("Job category does not exist.");
-    console.log("pass4");
 
     return res.status(200).json({ msg: "New job post added" });
   } catch (err) {
@@ -172,9 +172,13 @@ export const applyJob: RequestHandler = async (req, res, next) => {
   try {
     const { category } = req.body;
     const userId = req.userId;
-    if (!(await jobCategory.exists({ field: category }))) {
+    const isExist = await jobCategory.exists({ field: category });
+    if (!isExist) {
       throw new CustomAPIError("Job category does not exist");
     }
+    const ownerEmail: any = await jobCategory.findById(`${isExist._id}`);
+
+    await sendEmailToOwner(ownerEmail.createrJobEmail, userId);
     await User.findByIdAndUpdate(
       { _id: userId },
       {
